@@ -24,36 +24,38 @@ namespace TicTacToe
                     return tiles[0, 0].getTileTeam();
                 }
             }
-            else if (tiles[0, 2] != null && tiles[1, 1] != null && tiles[2, 0] != null)
+            if (tiles[0, 2] != null && tiles[1, 1] != null && tiles[2, 0] != null)
             {
                 if (tiles[0, 2].getTileTeam() == tiles[1, 1].getTileTeam() &&
                          tiles[2, 0].getTileTeam() == tiles[1, 1].getTileTeam())
                 {
                     return tiles[0, 2].getTileTeam();
                 }
+
             }
-            else
+
+
+
+            for (int i = 0; i < 3; i++)
             {
-                for (int i = 0; i < 3; i++)
+                if (tiles[i, 0] != null && tiles[i, 1] != null && tiles[i, 2] != null)
                 {
-                    if (tiles[i, 0] != null && tiles[i, 1] != null && tiles[i, 2] != null)
+                    if (tiles[i, 0].getTileTeam() == tiles[i, 1].getTileTeam() &&
+                    tiles[i, 0].getTileTeam() == tiles[i, 2].getTileTeam())
                     {
-                        if (tiles[i, 0].getTileTeam() == tiles[i, 1].getTileTeam() &&
-                        tiles[i, 0].getTileTeam() == tiles[i, 2].getTileTeam())
-                        {
-                            return tiles[i, 0].getTileTeam();
-                        }
+                        return tiles[i, 0].getTileTeam();
                     }
-                    else if (tiles[0, i] != null && tiles[1, i] != null && tiles[2, i] != null)
-                    {
-                        if (tiles[0, i].getTileTeam() == tiles[1, i].getTileTeam() &&
-                             tiles[0, i].getTileTeam() == tiles[2, i].getTileTeam())
-                        {
-                            return tiles[0, i].getTileTeam();
-                        }
-                    }    
-                    
                 }
+                else if (tiles[0, i] != null && tiles[1, i] != null && tiles[2, i] != null)
+                {
+                    if (tiles[0, i].getTileTeam() == tiles[1, i].getTileTeam() &&
+                         tiles[0, i].getTileTeam() == tiles[2, i].getTileTeam())
+                    {
+                        return tiles[0, i].getTileTeam();
+                    }
+                }
+
+
             }
             return TeamEnum.Team.None;
 
