@@ -104,13 +104,14 @@ namespace TicTacToe
             TeamEnum.Team winner = CheckGameFinish.isGameFinished(board);
             if (winner == TeamEnum.Team.X)
             {
-                gameFinishedLabel.Text = "Player 1 won";
-                return;
+                MessageBox.Show("Player 1 has won" , Text, MessageBoxButtons.OK);
+                Application.Restart();
+                
             }
             else if (winner == TeamEnum.Team.O)
             {
-                gameFinishedLabel.Text = "Player 2 won";
-                return;
+                MessageBox.Show("Player 2 has won", Text, MessageBoxButtons.OK);
+                Application.Restart();
             }
 
 
